@@ -15,3 +15,7 @@ makedocs(
         "Reference" => "reference.md",
     ]
     )
+
+deploydocs(
+    repo = "github.com/mkoculak/FileExplorer.jl.git",
+)

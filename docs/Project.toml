@@ -1,3 +1,6 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 FileExplorer = "edaeb83b-eb46-4343-a784-f8799e8c45af"
+
+[compat]
+Documenter = "1.8"
