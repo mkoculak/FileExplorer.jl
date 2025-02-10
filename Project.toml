@@ -10,6 +10,8 @@ OrderedCollections = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 
 [compat]
 julia = "1"
+AbstractTrees = "0.4"
+OrderedCollections = "1.6"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
