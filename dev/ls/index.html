@@ -12,24 +12,24 @@ Total elements: 6
 docs               src          test          LICENSE          Project.toml
 README.md</code></pre><p>Additionally, there is also a &quot;long&quot; format available that displays elements in a single column with additional information about each element (similarly to <code>ls -l</code> command).</p><pre><code class="language-julia hljs">ls(f, long=true)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Path: /home/runner/work/FileExplorer.jl/FileExplorer.jl
 Total elements: 6
-drwxr-xr-x  4096  10 Feb 13:02  docs
-drwxr-xr-x  4096  10 Feb 13:02  src
-drwxr-xr-x  4096  10 Feb 13:02  test
--rw-r--r--  1115  10 Feb 13:02  LICENSE
--rw-r--r--   434  10 Feb 13:02  Project.toml
--rw-r--r--  2930  10 Feb 13:02  README.md</code></pre><p>Since there is more information displayed, additional keywords are available to customise the output. For example, you can change the format of file sizes to include units as well as control the degree of rounding the numbers.</p><pre><code class="language-julia hljs">ls(f, long=true, unit=:mem, precision=0)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Path: /home/runner/work/FileExplorer.jl/FileExplorer.jl
+drwxr-xr-x  4096  10 Feb 23:02  docs
+drwxr-xr-x  4096  10 Feb 23:02  src
+drwxr-xr-x  4096  10 Feb 23:02  test
+-rw-r--r--  1115  10 Feb 23:02  LICENSE
+-rw-r--r--   483  10 Feb 23:02  Project.toml
+-rw-r--r--  2930  10 Feb 23:02  README.md</code></pre><p>Since there is more information displayed, additional keywords are available to customise the output. For example, you can change the format of file sizes to include units as well as control the degree of rounding the numbers.</p><pre><code class="language-julia hljs">ls(f, long=true, unit=:mem, precision=0)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Path: /home/runner/work/FileExplorer.jl/FileExplorer.jl
 Total elements: 6
-drwxr-xr-x    4 KB  10 Feb 13:02  docs
-drwxr-xr-x    4 KB  10 Feb 13:02  src
-drwxr-xr-x    4 KB  10 Feb 13:02  test
--rw-r--r--    1 KB  10 Feb 13:02  LICENSE
--rw-r--r--  434 B   10 Feb 13:02  Project.toml
--rw-r--r--    3 KB  10 Feb 13:02  README.md</code></pre><p>Please check the reference tab or the docstrings for a complete list of available options.</p><h2 id="DIR"><a class="docs-heading-anchor" href="#DIR">DIR</a><a id="DIR-1"></a><a class="docs-heading-anchor-permalink" href="#DIR" title="Permalink"></a></h2><p>Package also provides a <code>dir</code> function, but it is only an alias for <code>ls</code> with the <code>long</code> keyword argument set to <code>true</code>. It is provided to make it easier for users to get this popular display style without the need for keywords. However, you can use the same keywords to change the output - they will be passed to the <code>ls</code> method. For example, we can add the header to the columns.</p><pre><code class="language-julia hljs">dir(f, header=true)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Path: /home/runner/work/FileExplorer.jl/FileExplorer.jl
+drwxr-xr-x    4 KB  10 Feb 23:02  docs
+drwxr-xr-x    4 KB  10 Feb 23:02  src
+drwxr-xr-x    4 KB  10 Feb 23:02  test
+-rw-r--r--    1 KB  10 Feb 23:02  LICENSE
+-rw-r--r--  483 B   10 Feb 23:02  Project.toml
+-rw-r--r--    3 KB  10 Feb 23:02  README.md</code></pre><p>Please check the reference tab or the docstrings for a complete list of available options.</p><h2 id="DIR"><a class="docs-heading-anchor" href="#DIR">DIR</a><a id="DIR-1"></a><a class="docs-heading-anchor-permalink" href="#DIR" title="Permalink"></a></h2><p>Package also provides a <code>dir</code> function, but it is only an alias for <code>ls</code> with the <code>long</code> keyword argument set to <code>true</code>. It is provided to make it easier for users to get this popular display style without the need for keywords. However, you can use the same keywords to change the output - they will be passed to the <code>ls</code> method. For example, we can add the header to the columns.</p><pre><code class="language-julia hljs">dir(f, header=true)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Path: /home/runner/work/FileExplorer.jl/FileExplorer.jl
 Total elements: 6
 Permissions  Size  Date          Name
-drwxr-xr-x   4096  10 Feb 13:02  docs
-drwxr-xr-x   4096  10 Feb 13:02  src
-drwxr-xr-x   4096  10 Feb 13:02  test
--rw-r--r--   1115  10 Feb 13:02  LICENSE
--rw-r--r--    434  10 Feb 13:02  Project.toml
--rw-r--r--   2930  10 Feb 13:02  README.md</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><a class="docs-footer-nextpage" href="../browse/">Tree view »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Monday 10 February 2025 13:18">Monday 10 February 2025</span>. Using Julia version 1.11.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+drwxr-xr-x   4096  10 Feb 23:02  docs
+drwxr-xr-x   4096  10 Feb 23:02  src
+drwxr-xr-x   4096  10 Feb 23:02  test
+-rw-r--r--   1115  10 Feb 23:02  LICENSE
+-rw-r--r--    483  10 Feb 23:02  Project.toml
+-rw-r--r--   2930  10 Feb 23:02  README.md</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><a class="docs-footer-nextpage" href="../browse/">Tree view »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Monday 10 February 2025 23:22">Monday 10 February 2025</span>. Using Julia version 1.11.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
