@@ -1,26 +1,68 @@
-dir(; kwargs...) = dir("."; kwargs...)
-dir(path; kwargs...) = ls(path; long=true, kwargs...)
+"""
+    dir()
 
+Shorthand for listing the contents of the current directory.
+"""
+dir(; kwargs...) = dir("."; kwargs...)
+
+"""
+    dir(path::String; kwargs...)
+    dir(folder::AbstractFolder; kwargs...)
+
+List the contents of a directory in a long version, similar to the behavior of `dir` in Windows. Under the hood it is just calling `ls` with `long=true`. Other keyword arguments are passed to the `ls` call. Please look there for more detailed list.
+"""
+dir(path; kwargs...) = ls(path; long=true, kwargs...)
+dir(folder::AbstractFolder; kwargs...) = ls(folder; long=true, kwargs...)
+
+"""
+    ls()
+
+Shorthand for listing the contents of the current directory.
+"""
 ls(; kwargs...) = ls("."; kwargs...)
 
+"""
+    ls(path::String; kwargs...)
+    
+List the contents of a directory at the given path in a grid format.
+Function creates a `Folder` object and passes it to the proper method. See [`ls(structure::AbstractFolder; kwargs...)`](@ref) for more details on the possible keyword arguments.
+
+- `path`: The path to the folder.
+"""
 function ls(path::String; kwargs...)
     # Create directory tree
-    structure = Folder(path, lazy=true)
+    folder = Folder(path, lazy=true)
 
-    ls(structure; kwargs...)
+    ls(folder; kwargs...)
 end
 
-function ls(structure::AbstractFolder; long=false, kwargs...)
+"""
+    ls(folder::AbstractFolder; kwargs...)
+
+List the contents of a folder in a grid format. Function mimics the behavior of `ls` command in Unix-like systems. By default, it tries to fit all elements in the most vertically compact layout (with some default settings, like padding size). There is a number of keyword arguments that can be used to customize the output. Most notably, passing `long=true` will display the content in a single column with typical details like permissions, size, and modification date, similarly to `ls -l`. The actual displayed information will depend on the operating system.
+
+Possible keyword arguments:
+- `long::Bool`: Display the content in a single column view. Default is `false`.
+- `padding::Int`: The number of spaces between the columns. Default is 2.
+- `dims::Int`: The direction of the layout. For elements ordered column-wise use `1`, for row-wise use `2`. Default is `1`.
+- `maxWidth::Int`: The maximum width of the columns in characters. Default is 30.
+- `unit::Symbol`: The unit to use for file sizes. Possible values are `:none`, `:mem`, and `:memi`. Default is `:none`.
+- `precision::Int`: The number of decimal places to show for file sizes. Default is 2.
+- `uid::Bool`: Display the user ID. Default is `false`.
+- `gid::Bool`: Display the group ID. Default is `false`.
+- `header::Bool`: Display the header with column names. Default is `false`.
+"""
+function ls(folder::AbstractFolder; long=false, kwargs...)
     # Get all elements in the directory
-    elements = collect(keys(structure.children))
+    elements = collect(keys(folder.children))
     nElements = length(elements)
 
     if long
         # Print the elements in long format
-        long_layout(structure, elements, nElements; kwargs...)
+        long_layout(folder, elements, nElements; kwargs...)
     else
         # Print the elements in grid format
-        grid_layout(structure, elements, nElements; kwargs...)
+        grid_layout(folder, elements, nElements; kwargs...)
     end
 end
 

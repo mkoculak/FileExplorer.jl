@@ -2,8 +2,9 @@
 
 [![Build Status](https://github.com/mkoculak/FileExplorer.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/mkoculak/FileExplorer.jl/actions/workflows/CI.yml?query=branch%3Amaster)
 
-Package provides a simple interface to explore your filesystem as a tree structure and print it in the REPL. It has two main functions:  
-1. represent the chosen directory or file as a Julia struct:
+Package provides a simple interface to explore your filesystem as a tree structure and print it in the REPL.  
+It has two main functions:  
+#### 1. represent the chosen directory or file as a Julia struct
 ```julia
 julia> using FileExplorer
 julia> f = Folder("path/to/FileExplorer.jl")
@@ -24,9 +25,9 @@ julia> f["Project.toml"]
 File: Project.toml
 ```
 Additionally, each folder and file contains more information about itself in the `stat` field.
-
-2. display the contents in the REPL:
-We mimic the behavior of populat commands like `ls` and `dir` to provide a text-only overview:
+&nbsp;  
+#### 2. display the contents in the REPL
+We mimic the behavior of popular commands like `ls` and `dir` to provide a text-only overview:
 ```julia
 julia> ls(f)
 Path: D:\Github\FileExplorer.jl
@@ -55,14 +56,18 @@ julia> browse(f)
  └─ 📄 README.md
 ```
 Package allows for a number of customisations to the displayed output through keyword arguments. For more information, please refer to the documentation or the docstrings.
+&nbsp;
 
+## Roadmap
 FileExplorer.jl is a work in progress and we are open to suggestions and contributions.
 There is a number of features that we would like to add in the future, such as:
 - [ ] interface to easily extend the package with custom folder/file types
 - [ ] styling handled by `Preferences.jl`
 - [ ] a dedicated REPL mode to browse the filesystem
-- [ ] interactive browsing in the REPL
-If you have any ideas how to implement them or would like to contribute in any other way, please let us know.
+- [ ] interactive browsing in the REPL  
+
+If you have any ideas how to implement them or would like to contribute in any other way, please let us know!
+&nbsp;
 
 ## Acknowledgements
 This package is mostly an extension of an [example](https://github.com/JuliaCollections/AbstractTrees.jl/blob/master/test/examples/fstree.jl) in the AbstractTrees.jl package. Many thanks to the authors of the package for the inspiration.
