@@ -29,9 +29,9 @@ Function creates a `Folder` object and passes it to the proper method. See [`ls(
 
 - `path`: The path to the folder.
 """
-function ls(path::String; kwargs...)
+function ls(path::String; show_files=true, kwargs...)
     # Create directory tree
-    folder = Folder(path, lazy=true)
+    folder = Folder(path; lazy=true, index_files=show_files)
 
     ls(folder; kwargs...)
 end
@@ -46,13 +46,19 @@ Possible keyword arguments:
 - `padding::Int`: The number of spaces between the columns. Default is 2.
 - `dims::Int`: The direction of the layout. For elements ordered column-wise use `1`, for row-wise use `2`. Default is `1`.
 - `maxWidth::Int`: The maximum width of the columns in characters. Default is 30.
+- `show_files::Bool`: Whether to show files. Default is `true`.
 - `unit::Symbol`: The unit to use for file sizes. Possible values are `:none`, `:mem`, and `:memi`. Default is `:none`.
 - `precision::Int`: The number of decimal places to show for file sizes. Default is 2.
 - `uid::Bool`: Display the user ID. Default is `false`.
 - `gid::Bool`: Display the group ID. Default is `false`.
 - `header::Bool`: Display the header with column names. Default is `false`.
 """
-function ls(folder::AbstractFolder; long=false, kwargs...)
+function ls(folder::AbstractFolder; long=false, show_files=true, kwargs...)
+    # Replace the folder with a copy with no files to show only folder structure.
+    if !show_files
+        folder = _remove_files(folder)
+    end
+
     # Get all elements in the directory
     elements = collect(keys(folder.children))
     nElements = length(elements)
