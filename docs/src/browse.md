@@ -23,4 +23,9 @@ We set only a few keyword arguments differently than `AbstractTrees.jl`, but the
 browse(f, maxdepth=2, indicate_truncation=true)
 ```
 
+There is also an option to display only the folder structure without files.
+```@example browse
+browse(f, show_files=false)
+```
+
 In the future, we want to provide an easy way to customise most of the elements of the output, however right now only very basic customisation is available. For details, please look at the [Customisation](@ref) section.

@@ -5,11 +5,17 @@
 Package provides structures to represent files and folders without leaving the REPL as well as methods to display them in the terminal. This not only allows for exploring the contents of the filesystem but also provides an easy way to interact with it in Julia.
 
 !!! note
-    This package is in its early development stage and many thing might change in the future. We are also open to suggestions and contributions.
+    This package is in its early development stage and many things might change in the future. We are also open to suggestions and contributions.
 
 ## Installation
 
-Package is not yet registered in the Julia General registry, but you can install it directly from GitHub:
+Package can be installed directly from the Julia package manager:
+
+```
+pkg> add FileExplorer
+```
+
+To get the version with not yet released features, you can install it directly from GitHub:
 
 ```
 pkg> add https://github.com/mkoculak/FileExplorer.jl.git

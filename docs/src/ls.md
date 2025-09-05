@@ -36,6 +36,11 @@ Since there is more information displayed, additional keywords are available to 
 ls(f, long=true, unit=:mem, precision=0)
 ```
 
+There is also an option to display only the folder structure without files.
+```@example ls
+ls(f, show_files=false)
+```
+
 Please check the reference tab or the docstrings for a complete list of available options.
 
 ## DIR

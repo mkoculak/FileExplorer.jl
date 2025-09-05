@@ -8,7 +8,7 @@ FileExplorer.AbstractFile
 ## Folder
 ```@docs
 Folder
-Folder(path::String; hidden=false, lazy=false)
+Folder(path::String; hidden=false, lazy=false, index_files=true)
 ```
 
 ## File
@@ -25,7 +25,7 @@ dir(folder::FileExplorer.AbstractFolder)
 
 ## Browse elements
 ```@docs
-browse(folderpath::String; hidden=false, lazy=false, kwargs...)
+browse(folderpath::String; hidden=false, lazy=false, show_files=true, kwargs...)
 browse(folder::FileExplorer.AbstractFolder; maxdepth=1, indicate_truncation=false, prefix=" ", kwargs...)
 ```
 
