@@ -1,4 +1,4 @@
-# FileExplorer
+# <img src="https://raw.githubusercontent.com/mkoculak/FileExplorer.jl/refs/heads/main/docs/src/assets/favicon.ico" height=30px> FileExplorer
 
 [![Build Status](https://github.com/mkoculak/FileExplorer.jl/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/mkoculak/FileExplorer.jl/actions/workflows/CI.yml?query=branch%3Amaster)
 
